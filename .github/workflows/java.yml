@@ -15,3 +15,5 @@ jobs:
         run: gradle
       - name: Build java code
         run: gradle build
+      - run: ls ./build/libs
+      - run: java -jar ./build/libs/cars-api.jar
