@@ -24,6 +24,7 @@ jobs:
           path: ./build/libs/ 
   ExecuteJava:
     runs-on: ubuntu-latest
+    needs: BuildJava
     steps:
       - name: execute file
         run: |
