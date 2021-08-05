@@ -38,7 +38,7 @@ jobs:
              java -jar /home/runner/work/cars-api/cars-api/cars-api.jar &
              sleep 30
       - name: curl
-        run: curl http://localhost:5000/
+        run: curl http://localhost:5000/cars/1 | grep -i "ford"
       
       
           
