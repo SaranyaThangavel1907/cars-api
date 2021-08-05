@@ -32,4 +32,4 @@ jobs:
     steps:
     - name: curl
       run: |
-          curl http://localhost:5000/
+          curl --include http://localhost:5000/
