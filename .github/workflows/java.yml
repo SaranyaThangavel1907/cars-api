@@ -21,8 +21,13 @@ jobs:
       - name: uploading jar file
         uses: actions/upload-artifact@v2
         with:
-          path: ./build/libs/
+          path: ./build/libs/      
       
-      - name: curl 
-        run: curl http://localhost:5005
           
+  curl:
+    runs-on: ubuntu-latest
+    steps:
+    - name: curl
+      uses: wei/curl@master
+      with:
+        args: http://localhost:5005
