@@ -1,0 +1,40 @@
+name: Java Workflow Demo
+
+on: [push]
+
+jobs:
+  BuildJava:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: List the files in current directory
+        run: ls ${{github.workspace}}
+        
+      - name: Verify the Java Version
+        run: java --version
+        
+      - name: test gradel
+        run: gradle
+        
+      - name: Build java code
+        run: gradle build
+        
+      - name: list files  
+        run: ls ./build/libs
+      
+      - name: uploading jar file
+        uses: actions/upload-artifact@v2
+        with:
+          name: CarsApi
+          path: ./build/libs/           
+                
+      - name: list files
+        run: ls ${{github.workspace}}
+        
+      - name: execute file
+        run: |
+             java -jar cars-api.jar &
+             sleep 30
+             
+      - name: curl
+        run: curl http://localhost:5000/cars/1 | grep -i "ford"
