@@ -24,12 +24,9 @@ jobs:
           path: ./build/libs/  
       - name: execute file
         run: java -jar ./build/libs/cars-api.jar &
+      - name: curl
+        run: curl --include http://localhost:5000/
       
       
           
-  curl:
-    runs-on: ubuntu-latest
-    steps:
-    - name: curl
-      run: |
-          curl --include http://localhost:5000/
+  
