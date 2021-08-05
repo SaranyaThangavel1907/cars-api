@@ -36,7 +36,7 @@ jobs:
     - name: Verify the Java Version
       run: java --version
     - name: Compile the Java Program
-      run: javac cars-api/src/main/java/com/truckla/cars/CarsApplication.java
+      run: javac src/main/java/com/truckla/cars/CarsApplication.java
     - name: Verify Java Compiled or Not
       run: ls ${{github.workspace}}
     - name: Execute the Java Code
