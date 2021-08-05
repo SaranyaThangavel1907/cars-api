@@ -21,11 +21,16 @@ jobs:
       - name: uploading jar file
         uses: actions/upload-artifact@v2
         with:
-          path: ./build/libs/  
+          path: ./build/libs/ 
+  ExecuteJava:
+    runs-on: ubuntu-latest
+    steps:
       - name: execute file
-        run: java -jar ./build/libs/cars-api.jar &
+        run: |
+             java -jar ./build/libs/cars-api.jar &
+             sleep 30
       - name: curl
-        run: curl --include http://localhost:5000/
+        run: curl http://localhost:5000/
       
       
           
