@@ -15,5 +15,14 @@ jobs:
         run: gradle
       - name: Build java code
         run: gradle build
-      - run: ls ./build/libs
+      - name: list files  
+        run: ls ./build/libs
       - run: java -jar ./build/libs/cars-api.jar
+      - name: uploading jar file
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./build/libs/
+      
+      - name: curl 
+        run: curl http://localhost:5005
+          
