@@ -25,3 +25,19 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+  ExecuteJavaFiles:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: List the files in current directory
+      run: ls ${{github.workspace}}
+    - name: Verify the Java Version
+      run: java --version
+    - name: Compile the Java Program
+      run: javac CarsApplication.java
+    - name: Verify Java Compiled or Not
+      run: ls ${{github.workspace}}
+    - name: Execute the Java Code
+      run: java CarsApplication
