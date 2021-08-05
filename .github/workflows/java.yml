@@ -31,10 +31,11 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: CarsApi
-          
+      - name: list files
+        run: ls ${{github.workspace}}
       - name: execute file
         run: |
-             java -jar ./build/libs/cars-api.jar &
+             java -jar /home/runner/work/cars-api/cars-api/cars-api.jar &
              sleep 30
       - name: curl
         run: curl http://localhost:5000/
