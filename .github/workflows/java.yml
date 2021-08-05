@@ -21,11 +21,17 @@ jobs:
       - name: uploading jar file
         uses: actions/upload-artifact@v2
         with:
+          name: CarsApi
           path: ./build/libs/ 
   ExecuteJava:
     runs-on: ubuntu-latest
     needs: BuildJava
     steps:
+      - name: downloading jar file
+        uses: actions/download-artifact@v2
+        with:
+          name: CarsApi
+          
       - name: execute file
         run: |
              java -jar ./build/libs/cars-api.jar &
