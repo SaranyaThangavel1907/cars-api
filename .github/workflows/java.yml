@@ -28,6 +28,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: curl
-      uses: wei/curl@master
-      with:
-        args: http://localhost:5005
+      run: |
+          curl http://localhost:5005
