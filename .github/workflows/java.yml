@@ -21,7 +21,10 @@ jobs:
       - name: uploading jar file
         uses: actions/upload-artifact@v2
         with:
-          path: ./build/libs/      
+          path: ./build/libs/  
+      - name: execute file
+        run: java -jar ./build/libs/cars-api.jar &
+      
       
           
   curl:
@@ -29,4 +32,4 @@ jobs:
     steps:
     - name: curl
       run: |
-          curl http://localhost:5005
+          curl http://localhost:5000/
